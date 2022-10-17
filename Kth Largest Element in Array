@@ -1,0 +1,12 @@
+function quickSelect(nums, left, right, k)
+   if left = right return nums[left]   // base case
+
+   pIndex = random element between left and right
+   pIndex = partition(nums, left, right, pIndex)
+   
+   if k = pIndex
+      return nums[k]
+   else if k < pIndex
+      return quickselect with: right = pIndex - 1
+   else
+      return quickselect with: left = pIndex + 1

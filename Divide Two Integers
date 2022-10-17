@@ -1,0 +1,44 @@
+public int divide(int dividen, int divisor) {
+        if (divisor == Integer.MIN_VALUE) {
+            return dividen == Integer.MIN_VALUE ? 1 : 0;
+        }
+        
+        if (dividen == Integer.MIN_VALUE) {
+            if (divisor == 1) {
+                return dividen;
+            } else if (divisor == -1) {
+                return Integer.MAX_VALUE;
+            }
+        } else if (dividen == Integer.MAX_VALUE) {
+            if (divisor == 1) {
+                return dividen;
+            } else if (divisor == -1) {
+                return -dividen;
+            }
+        }
+
+        long dividenLong = dividen;
+        long divisorLong = divisor;
+
+        boolean sign = false;
+        if (dividenLong < 0 && divisorLong < 0) {
+            dividenLong = -dividenLong;
+            divisorLong = -divisorLong;
+        } else if (dividenLong < 0 && divisorLong > 0) {
+            sign = true;
+            dividenLong = -dividenLong;
+        } else if (dividenLong > 0 && divisorLong < 0) {
+            sign = true;
+            divisorLong = -divisorLong;
+        }
+
+        long ans = 0;
+        while (dividenLong >= divisorLong) {
+            dividenLong -= divisorLong;
+            ans++;
+        }
+
+        ans = sign ? -ans : ans;
+
+        return ans > Integer.MAX_VALUE ? Integer.MAX_VALUE : (int) ans;
+    }

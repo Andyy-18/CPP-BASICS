@@ -12,7 +12,7 @@ void sum(int arr[],int n){
 int main()
 {   
     int n;
-    cout<<"Enter how many numbers you want to summation : "<<endl;
+    cout<<"Enter how many numbers you want to summation :: "<<endl;
     cin>>n;
 
     int arr[n];
